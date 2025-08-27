@@ -1,7 +1,7 @@
 
 const Sheet = () => {
   return (
-    <div>Sheet</div>
+    <div>All Sheet</div>
   )
 }
 
