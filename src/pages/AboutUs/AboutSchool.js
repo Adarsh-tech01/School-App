@@ -140,7 +140,7 @@ const AboutSchool = () => {
                 desc: "Spacious campus with library, labs, and playgrounds.",
               },
             ].map((item, i) => (
-              <Grid item xs={12} sm={6} md={3} key={i}>
+              <Grid item size={{xs:12, md:6, sm:12}} key={i}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.3 }}

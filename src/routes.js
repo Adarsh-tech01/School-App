@@ -126,8 +126,8 @@ const routes = [
         element: <FeesStructure />,
       },
       {
-        path: "/sheet",
-        title: "Sheet",
+        path: "/seats",
+        title: "Seats",
         icon: <EventSeatIcon />,
         element: <Sheet />,
       },
