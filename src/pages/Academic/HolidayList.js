@@ -1,8 +1,11 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 
 const HolidayList = () => {
   return (
-    <div>Holiday List</div>
+    <>
+    <ComingSoonPage />
+    </>
   )
 }
 

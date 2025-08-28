@@ -18,6 +18,10 @@ import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import MeetingRoomIcon from "@mui/icons-material/MeetingRoom";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import ContactPageIcon from "@mui/icons-material/ContactPage";
+import BoyIcon from '@mui/icons-material/Boy';
+import ArticleIcon from '@mui/icons-material/Article';
+import FaceIcon from '@mui/icons-material/Face';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
 
 // All imported components
 import HomePage from "./pages/HomePage/HomePage";
@@ -38,6 +42,10 @@ import LaboratoriesAndInstruments from "./pages/Facilities/LaboratoriesAndInstru
 import Library from "./pages/Facilities/Library";
 import ContactUs from "./pages/ContactUs/ContactUs";
 import Gallery from "./pages/Gallery/Gallery";
+import StudnetTC from "./pages/Student/StudnetTC";
+import Result from "./pages/Student/Result";
+import RegisterStudent from "./pages/Student/RegisterStudent";
+import News from "./pages/News/News";
 
 const routes = [
   {
@@ -150,7 +158,7 @@ const routes = [
       },
       {
         path: "/facility/labandinstrument",
-        title: "Lab And Instrument",
+        title: "Lab And Instruments",
         icon: <BiotechIcon />,
         element: <LaboratoriesAndInstruments />,
       },
@@ -162,11 +170,41 @@ const routes = [
       },
     ],
   },
+    {
+    title: "Students",
+    icon: <BoyIcon />,
+    children: [
+      {
+        path: "/student/tc",
+        title: "Transfer Certificates",
+        icon: <ArticleIcon />,
+        element: <StudnetTC />,
+      },
+      {
+        path: "/student/result",
+        title: "Result",
+        icon: <ArticleIcon />,
+        element: <Result />,
+      },
+      {
+        path: "/student/registration",
+        title: "Register Student",
+        icon: <FaceIcon />,
+        element: <RegisterStudent />,
+      },
+    ],
+  },
   {
     path: "/gallery",
     title: "Gallery",
     icon: <CollectionsIcon />,
     element: <Gallery />,
+  },
+    {
+    path: "/news",
+    title: "NEWS",
+    icon: <NewspaperIcon />,
+    element: <News />
   },
   {
     path: "/contact-us",

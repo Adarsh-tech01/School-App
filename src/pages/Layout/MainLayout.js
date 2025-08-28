@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
-import { createTheme } from "@mui/material/styles";
+import { createTheme  } from "@mui/material/styles";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import routes from "../../routes";
 import NotFoundPage from "../NotFound/PageNotFound";
+import Login from "../Student/LoginPage";
+import ForgotPassword from "../Student/ForgetPassword";
 
 const demoTheme = createTheme({
   cssVariables: { colorSchemeSelector: "data-toolpad-color-scheme" },
-  colorSchemes: { light: true, dark: true },
+  colorSchemes: { light: true,dark:true },
 });
 
 // 🔹 Convert routes.js into Toolpad's NAVIGATION format
@@ -62,8 +64,8 @@ function MainLayout(props) {
       <RouterAdapter>
         {(router) => (
           <AppProvider navigation={buildNavigation(routes)} router={router} theme={demoTheme} 
-          branding={{title:"School Name Here" , logo: <img src="/logo213.png" alt="My App Logo" style={{ height: 32 }} />}}>
-            <DashboardLayout>
+          branding={{title:"MAA SHANTI U.M VIDHYALAYA" , logo: <img src="/logo2132.png" alt="My App Logo" style={{ height: 32, borderRadius:'20px' }} />}}>
+            <DashboardLayout sidebarExpandedWidth={250}>
               <Routes>
                 {routes.map((route) =>
                   route.children ? (
@@ -76,6 +78,9 @@ function MainLayout(props) {
                 )}
                 {/* default fallback */}
                 <Route path="*" element={<NotFoundPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/reset-password" element={<ForgotPassword />} />
+                <Route path="/verify" element={<ForgotPassword />} />
               </Routes>
             </DashboardLayout>
           </AppProvider>

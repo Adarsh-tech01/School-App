@@ -1,7 +1,8 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 const ApplyAddmission = () => {
   return (
-    <div>Apply Addmission</div>
+    <div><ComingSoonPage /></div>
   )
 }
 

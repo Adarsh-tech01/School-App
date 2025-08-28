@@ -1,8 +1,9 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 
 const ICT = () => {
   return (
-    <div>ICT</div>
+    <div><ComingSoonPage /></div>
   )
 }
 

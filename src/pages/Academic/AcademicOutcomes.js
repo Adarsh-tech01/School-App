@@ -1,7 +1,10 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 const AcademicOutcomes = () => {
   return (
-    <div>Academic Outcomes</div>
+    <>
+    <ComingSoonPage />
+    </>
   )
 }
 

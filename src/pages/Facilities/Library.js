@@ -1,7 +1,8 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 const Library = () => {
   return (
-    <div>Library</div>
+    <div><ComingSoonPage /></div>
   )
 }
 

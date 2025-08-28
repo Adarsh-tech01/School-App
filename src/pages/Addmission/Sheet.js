@@ -1,7 +1,8 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 const Sheet = () => {
   return (
-    <div>All Sheet</div>
+    <div><ComingSoonPage /></div>
   )
 }
 

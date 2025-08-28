@@ -1,7 +1,8 @@
+import ComingSoonPage from "../Upcoming/ComingSoon"
 
 const Gallery = () => {
   return (
-    <div>Gallery</div>
+    <div><ComingSoonPage /></div>
   )
 }
 
