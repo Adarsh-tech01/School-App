@@ -198,7 +198,7 @@ const HomePage = () => {
 
       {/* Contact Section */}
       <MotionBox
-        sx={{ backgroundColor: "#f5f5f5", py: 4 }}
+        sx={{  py: 4 }}
         initial="hidden"
         animate="visible"
         variants={fadeUp}
