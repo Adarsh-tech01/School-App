@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import {  useRef } from "react";
 import {
   Container,
   Typography,
@@ -21,6 +21,7 @@ import { useFormik } from "formik";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import LoadingPage from "../Layout/LoadingPage/Loading";
 
 const validationSchema = Yup.object({
   studentName: Yup.string().required("Student name is required"),
@@ -31,13 +32,22 @@ const validationSchema = Yup.object({
   gender: Yup.string().required("Gender is required"),
   parentName: Yup.string().required("Parents name is required"),
   contactNumber: Yup.string()
-    .matches(/^\d{10}/, "Phone number should be 10 digit")
+   .min(6,"Not a valid number")
+   .max(10,"Length should be 10 digit")
     .required("Phone number is required"),
   email: Yup.string().email("Invalid email").required("Email is required"),
 });
 
 const ApplyAddmission = () => {
   const currentYear = new Date().getFullYear(); // current year
+
+const delay =(d)=>{
+return new Promise((resolve,reject)=>{
+setTimeout(()=>{
+resolve();
+},d* 1000)
+})
+};
 
   const formik = useFormik({
     initialValues: {
@@ -56,7 +66,8 @@ const ApplyAddmission = () => {
       photo: null,
     },
     validationSchema,
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: async(values, { resetForm }) => {
+     await delay(4);
       console.log("Submitted Data", values);
       resetForm();
     },
@@ -110,6 +121,7 @@ const ApplyAddmission = () => {
 
   return (
     <Container sx={{ mt: 5, mb: 5 }}>
+      {formik.isSubmitting && <div>Loading ....</div>}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -417,6 +429,7 @@ const ApplyAddmission = () => {
                 variant="contained"
                 color="primary"
                 size="large"
+                disabled={formik.isSubmitting}
                 sx={{ py: 1.5, float: "right" }}
               >
                 Submit

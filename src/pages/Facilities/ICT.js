@@ -37,7 +37,7 @@ const facilities = [
 
 const ICT = () => {
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "#f5f5f5" }}>
+    <Box >
       {/* Hero Section */}
       <Box
         sx={{
@@ -82,7 +82,7 @@ const ICT = () => {
                     textAlign: "center",
                     py: 4,
                     px: 2,
-                    background: "white",
+                    // background: "white",
                     "&:hover": {
                       transform: "translateY(-8px)",
                       boxShadow: "0px 15px 25px rgba(0,0,0,0.2)",

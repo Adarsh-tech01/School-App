@@ -13,18 +13,33 @@ import SportsSoccerIcon from "@mui/icons-material/SportsSoccer";
 import EmojiNatureIcon from "@mui/icons-material/EmojiNature";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 const MotionBox = motion(Box);
 const MotionCard = motion(Card);
 
 const HomePage = () => {
   const navigate = useNavigate();
+ 
   const titleText = "माँ शांति उच्चतर माध्यमिक विद्यालय ".split(" ");
 
   const handleClick = () => {
     navigate("/admission/apply");
   };
 
+  // api from express 
+    // const [users, setUsers] = useState([]);
+  
+//  useEffect(()=>{
+//   axios.get("http://localhost:3001/users")
+//   .then((res)=>setUsers(res.data))
+//   .catch((err)=> console.log(err))
+//  },[]);
+
+//  for(let i=0;i<users.length;i++){
+//   console.log(users[i].Email,users[i].Password);
+//  }
   // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 40 },

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -17,6 +17,8 @@ import {
   OutlinedInput,
 } from "@mui/material";
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const theme = useTheme();
@@ -26,37 +28,60 @@ const Login = () => {
   });
   const [showPassword, setShowPassword] = React.useState(false);
   const [errors, setErrors] = React.useState({});
+  const [users, setUsers] = useState();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const validateForm = () => {
-    const newErrors = {};
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Email is invalid";
-    }
-    if (!formData.password) {
-      newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters";
-    }
+  // const validateForm = () => {
+  //   const newErrors = {};
+  //   if (!formData.email.trim()) {
+  //     newErrors.email = "Email is required";
+  //   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+  //     newErrors.email = "Email is invalid";
+  //   }
+  //   if (!formData.password) {
+  //     newErrors.password = "Password is required";
+  //   } else if (formData.password.length < 6) {
+  //     newErrors.password = "Password must be at least 6 characters";
+  //   }
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      alert("Login successful! Welcome back.");
-      // Replace with your API call
-      console.log("Login submitted:", formData);
+    // if (validateForm()) {
+    //   alert("Login successful! Welcome back.");
+    //   // Replace with your API call
+    //   console.log("Login submitted:", formData);
+    // }
+    if (
+      users[0].Email === formData.email &&
+      users[0].Password === formData.password
+    ) {
+      navigate("/");
+    } else {
+      console.log("Invalid Credentials");
+      alert("Invalid username or password");
+      setFormData({ email: " ", password: "" });
     }
   };
+
+  //  users data from the api
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/users")
+      .then((res) => setUsers(res.data))
+      .catch((err) => console.log("Error from login", err));
+  }, []);
+
+  // console.log(users)
 
   return (
     <Container maxWidth="sm" sx={{ py: 6 }}>
@@ -175,7 +200,9 @@ const Login = () => {
               </Button>
 
               {/* Forgot Password & Register Link */}
-              <Box sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}>
+              <Box
+                sx={{ display: "flex", justifyContent: "space-between", mt: 2 }}
+              >
                 <Link
                   href="/reset-password"
                   underline="hover"

@@ -15,6 +15,7 @@ import {
   Card,
   CardContent,
   Grid,
+  // useTheme,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import jsPDF from "jspdf";
@@ -49,7 +50,7 @@ const dueDates = [
 
 const FeesStructure = () => {
   const today = new Date();
-
+  // const theme = useTheme();
   // Download function
  const downloadPDF = () => {
   const doc = new jsPDF();
@@ -122,13 +123,13 @@ doc.text("School Fee Structure (Classes 1–12)", 105, 25, { align: "center" });
 
         <TableContainer component={Paper} elevation={6} sx={{ borderRadius: 3 }}>
           <Table>
-            <TableHead sx={{ backgroundColor: "primary.main" }}>
+            <TableHead>
               <TableRow>
-                <TableCell sx={{ color: "white", fontWeight: 600 }}>Class</TableCell>
-                <TableCell sx={{ color: "white", fontWeight: 600 }}>Tuition Fee</TableCell>
-                <TableCell sx={{ color: "white", fontWeight: 600 }}>Exam Fee</TableCell>
-                <TableCell sx={{ color: "white", fontWeight: 600 }}>Miscellaneous</TableCell>
-                <TableCell sx={{ color: "white", fontWeight: 600 }}>Total</TableCell>
+                <TableCell sx={{  fontWeight: 600 }}>Class</TableCell>
+                <TableCell sx={{  fontWeight: 600 }}>Tuition Fee</TableCell>
+                <TableCell sx={{  fontWeight: 600 }}>Exam Fee</TableCell>
+                <TableCell sx={{ fontWeight: 600 }}>Miscellaneous</TableCell>
+                <TableCell sx={{  fontWeight: 600 }}>Total</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -138,15 +139,13 @@ doc.text("School Fee Structure (Classes 1–12)", 105, 25, { align: "center" });
                   initial={{ opacity: 0, x: -50 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  style={{
-                    backgroundColor: index % 2 === 0 ? "#f9f9f9" : "white",
-                  }}
+                
                 >
-                  <TableCell>{row.class}</TableCell>
-                  <TableCell>₹ {row.tuition}</TableCell>
-                  <TableCell>₹ {row.exam}</TableCell>
-                  <TableCell>₹ {row.misc}</TableCell>
-                  <TableCell sx={{ fontWeight: 600, color: "primary.main" }}>
+                  <TableCell >{row.class}</TableCell>
+                  <TableCell >₹ {row.tuition}</TableCell>
+                  <TableCell >₹ {row.exam}</TableCell>
+                  <TableCell >₹ {row.misc}</TableCell>
+                  <TableCell >
                     ₹ {row.total}
                   </TableCell>
                 </motion.tr>
@@ -174,7 +173,7 @@ doc.text("School Fee Structure (Classes 1–12)", 105, 25, { align: "center" });
           variant="h4"
           fontWeight={700}
           textAlign="center"
-          color="secondary"
+          // color="secondary"
           gutterBottom
         >
           Upcoming Fee Due Dates ⏰
@@ -196,7 +195,7 @@ doc.text("School Fee Structure (Classes 1–12)", 105, 25, { align: "center" });
                       borderRadius: 3,
                       textAlign: "center",
                       p: 3,
-                      backgroundColor: isOverdue ? "#ffebee" : "#e8f5e9",
+                      // backgroundColor: isOverdue ? "#ffebee" : "#e8f5e9",
                     }}
                   >
                     <CardContent>

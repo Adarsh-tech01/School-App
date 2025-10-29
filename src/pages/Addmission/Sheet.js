@@ -112,7 +112,7 @@ const Sheet = () => {
             }}
           >
             <Table>
-              <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
+              <TableHead >
                 <TableRow>
                   <TableCell align="center" sx={{ fontWeight: 600 }}>
                     Class

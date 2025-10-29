@@ -36,7 +36,7 @@ const infrastructures = [
 
 const Infrastructure = () => {
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "#f5f5f5" }}>
+    <Box>
       {/* Hero Section */}
       <Box
         sx={{
@@ -81,7 +81,6 @@ const Infrastructure = () => {
                     textAlign: "center",
                     py: 4,
                     px: 2,
-                    background: "white",
                     "&:hover": {
                       transform: "translateY(-8px)",
                       boxShadow: "0px 15px 25px rgba(0,0,0,0.2)",

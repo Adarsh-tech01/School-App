@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Typography, Grid, Card } from "@mui/material";
+import { Box, Container, Typography, Grid, Card, useTheme } from "@mui/material";
 import { motion } from "framer-motion";
 import ScienceIcon from "@mui/icons-material/Science";
 import BiotechIcon from "@mui/icons-material/Biotech";
@@ -11,34 +11,41 @@ const labs = [
   {
     icon: <ScienceIcon sx={{ fontSize: 50, color: "#ff416c" }} />,
     title: "Physics Lab",
-    description: "Equipped with modern apparatus and experimental setups to understand the principles of physics.",
+    description:
+      "Equipped with modern apparatus and experimental setups to understand the principles of physics.",
   },
   {
     icon: <ChemistryIcon sx={{ fontSize: 50, color: "#ff4b2b" }} />,
     title: "Chemistry Lab",
-    description: "State-of-the-art chemistry lab with chemicals, instruments, and safety equipment for experiments.",
+    description:
+      "State-of-the-art chemistry lab with chemicals, instruments, and safety equipment for experiments.",
   },
   {
     icon: <BiotechIcon sx={{ fontSize: 50, color: "#1e3c72" }} />,
     title: "Biology Lab",
-    description: "Fully functional biology lab with microscopes, specimens, and learning kits for hands-on study.",
+    description:
+      "Fully functional biology lab with microscopes, specimens, and learning kits for hands-on study.",
   },
   {
     icon: <ComputerIcon sx={{ fontSize: 50, color: "#2a5298" }} />,
     title: "Computer Lab",
-    description: "High-speed computers with educational software for programming and research.",
+    description:
+      "High-speed computers with educational software for programming and research.",
   },
   {
     icon: <LabIcon sx={{ fontSize: 50, color: "#f9a825" }} />,
     title: "Instruments & Tools",
-    description: "Various scientific instruments and tools to support practical learning in all science streams.",
+    description:
+      "Various scientific instruments and tools to support practical learning in all science streams.",
   },
 ];
 
 const LaboratoriesAndInstruments = () => {
+  const theme = useTheme(); // Access the current theme
+
   return (
-    <Box sx={{ minHeight: "100vh", position: "relative",  bgcolor: "#f0f4f8" }}>
-      {/* Background Gradient */}
+    <Box sx={{position: "relative" }}>
+      {/* Background Overlay */}
       <Box
         sx={{
           position: "absolute",
@@ -46,42 +53,50 @@ const LaboratoriesAndInstruments = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          background: "linear-gradient(135deg, #ff416c, #ff4b2b, #1e3c72, #2a5298)",
+          background:
+            "linear-gradient(135deg, #ff416c, #ff4b2b, #1e3c72, #2a5298)",
           opacity: 0.05,
           zIndex: 0,
         }}
       />
 
       {/* Hero Section */}
-         <Box
-              sx={{
-                textAlign: "center",
-                py: { xs: 6, md: 12 },
-                mb: 6,
-                background: "linear-gradient(135deg, #ff416c, #ff4b2b)",
-                color: "white",
-                borderRadius: 4,
-              }}
-            >
-              <motion.div
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-              >
-                <Typography variant="h2" sx={{ fontWeight: 700, mb: 2, fontSize: { xs: "2rem", md: "3rem" } }}>
-                  Labs & Instruments
-                </Typography>
-                <Typography variant="h6" sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}>
-                 Explore our science labs and instruments that make learning interactive and practical.
-                </Typography>
-              </motion.div>
-            </Box>
-   
+      <Box
+        sx={{
+          textAlign: "center",
+          py: { xs: 6, md: 12 },
+          mb: 6,
+          background: "linear-gradient(135deg, #ff416c, #ff4b2b)",
+          color: theme.palette.getContrastText("#ff4b2b"),
+          borderRadius: 4,
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <Typography
+            variant="h2"
+            sx={{ fontWeight: 700, mb: 2, fontSize: { xs: "2rem", md: "3rem" } }}
+          >
+            Labs & Instruments
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ fontSize: { xs: "1rem", md: "1.2rem" } }}
+          >
+            Explore our science labs and instruments that make learning
+            interactive and practical.
+          </Typography>
+        </motion.div>
+      </Box>
+
       {/* Labs Grid */}
       <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
         <Grid container spacing={4}>
           {labs.map((lab, index) => (
-            <Grid item size={{xs:12, md:6, sm:12}} key={index}>
+            <Grid size={{xs:12, md:6, sm:12}} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -95,8 +110,7 @@ const LaboratoriesAndInstruments = () => {
                     textAlign: "center",
                     py: 4,
                     px: 2,
-                    background: "white",
-                    color: "text.primary",
+                    backgroundColor: "background.paper",
                     "&:hover": {
                       transform: "translateY(-5px)",
                       boxShadow: "0px 10px 20px rgba(0,0,0,0.2)",
@@ -125,16 +139,21 @@ const LaboratoriesAndInstruments = () => {
             textAlign: "center",
             py: 8,
             background: "linear-gradient(135deg, #1e3c72, #2a5298)",
-            color: "white",
+            color: theme.palette.getContrastText("#1e3c72"),
             borderRadius: 4,
           }}
         >
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 2 }}>
               Hands-on Learning
             </Typography>
             <Typography variant="body1" sx={{ mb: 3 }}>
-              Our labs and instruments provide students with practical exposure to science and technology, enhancing understanding and curiosity.
+              Our labs and instruments provide students with practical exposure
+              to science and technology, enhancing understanding and curiosity.
             </Typography>
           </motion.div>
         </Box>

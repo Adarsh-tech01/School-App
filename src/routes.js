@@ -46,7 +46,7 @@ import StudnetTC from "./pages/Student/StudnetTC";
 import Result from "./pages/Student/Result";
 import RegisterStudent from "./pages/Student/RegisterStudent";
 import News from "./pages/News/News";
-import Demo from "./pages/NotFound/Demo";
+// import Demo from "./pages/NotFound/Demo";
 
 const routes = [
   {
@@ -213,12 +213,12 @@ const routes = [
     icon: <ContactPageIcon />,
     element: <ContactUs />,
   },
-    {
-    path: "/demo",
-    title: "Demo",
-    icon: <ContactPageIcon />,
-    element: <Demo />,
-  },
+  //   {
+  //   path: "/demo",
+  //   title: "Demo",
+  //   icon: <ContactPageIcon />,
+  //   element: <Demo />,
+  // },
 ];
 
 export default routes;

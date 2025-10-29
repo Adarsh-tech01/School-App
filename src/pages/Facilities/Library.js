@@ -37,7 +37,7 @@ const libraryFeatures = [
 
 const Library = () => {
   return (
-    <Box sx={{ minHeight: "100vh", position: "relative", bgcolor: "#f0f4f8" }}>
+    <Box sx={{  position: "relative"}}>
       {/* Subtle Background Gradient */}
       <Box
         sx={{
@@ -95,7 +95,6 @@ const Library = () => {
                     textAlign: "center",
                     py: 4,
                     px: 2,
-                    background: "white",
                     color: "text.primary",
                     "&:hover": {
                       transform: "translateY(-5px)",
@@ -127,6 +126,7 @@ const Library = () => {
             background: "linear-gradient(135deg, #1e3c72, #2a5298)",
             color: "white",
             borderRadius: 4,
+            width:'100%'
           }}
         >
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1 }}>

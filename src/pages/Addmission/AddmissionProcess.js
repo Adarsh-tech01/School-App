@@ -186,7 +186,6 @@ const AdmissionProcess = () => {
       {/* Contact CTA */}
       <Box
         sx={{
-          backgroundColor: "#f5f5f5",
           py: 6,
           textAlign: "center",
         }}

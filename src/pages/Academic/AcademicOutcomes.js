@@ -188,7 +188,7 @@ const handleDownloadPDF = () => {
       <Container sx={{ py: 4 }}>
         <TableContainer component={Paper} elevation={3} sx={{ borderRadius: 3 }}>
           <Table>
-            <TableHead sx={{ backgroundColor: "#f5f5f5" }}>
+            <TableHead >
               <TableRow>
                 <TableCell align="center" sx={{ fontWeight: 600 }}>
                   Subject
